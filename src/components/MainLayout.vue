@@ -1,18 +1,20 @@
 <template>
   <div class="link__page">
-    <!-- <NavBar :groupCover="true"/> -->
-    <LinkDescription class="position-relative" :data="linkInfo" :qrcode="apiData.qrcode" :apiData="apiData"/>
+    <NavBar :groupCover="true"/>
+    <transition name="fade">
+        <router-view />
+    <!-- <LinkDescription class="position-relative" :data="linkInfo" :qrcode="apiData.qrcode" :apiData="apiData"/> -->
+    </transition>
   </div>
 </template>
 
 <script>
-import LinkDescription from "@/components/LinkDescription";
-// import NavBar from "@/components/NavBar";
+// import LinkDescription from "@/components/LinkDescription";
+import NavBar from "@/components/NavBar";
 import { mapGetters } from 'vuex';
 
 export default {
-  name: "LinkPage",
-  title: '',
+  name: "MainLayout",
   data() {
     return {
       apiData: {},
@@ -21,8 +23,8 @@ export default {
     }
   },
   components: {
-    // NavBar,
-    LinkDescription
+    NavBar,
+    // LinkDescription
   },
   computed: {
     ...mapGetters({linkInfo: 'link/getLinkInfo'}),
@@ -77,6 +79,13 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+// .fade-enter-active, .fade-leave-active {
+//   transition: opacity .5s;
+// }
+// .fade-enter, .fade-leave-to /* .fade-leave-active до версии 2.1.8 */ {
+//   opacity: 0;
+// }
+
 .logo {
   margin-bottom: 0;
 }

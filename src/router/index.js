@@ -19,10 +19,27 @@ const routes = [
         component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
     },
     {
-        path: '/link/:uuid',
+        path: '/link',
         name: 'LinkPage',
-        component: () => import(/* webpackChunkName: "loginPage" */ '../views/LinkPage')
+        component: () => import(/* webpackChunkName: "loginPage" */ '../components/MainLayout'),
+        children: [
+            {
+                path: '/all',
+                name: 'UserSpace',
+                component: () => import(/* webpackChunkName: "userPage" */ '../views/UserPage')
+            },
+            {
+                path: '/link/:uuid',
+                name: 'LinkPage',
+                component: () => import(/* webpackChunkName: "loginPage" */ '../views/LinkPage')
+            }
+        ],
     },
+    // {
+    //     path: '/link/:uuid',
+    //     name: 'LinkPage',
+    //     component: () => import(/* webpackChunkName: "loginPage" */ '../views/LinkPage')
+    // },
     {
         path: '/test',
         name: 'TestPage',
@@ -33,11 +50,11 @@ const routes = [
         name: 'AuthPage',
         component: () => import(/* webpackChunkName: "authPage" */ '../views/Auth')
     },
-    {
-        path: '/myspace',
-        name: 'UserSpace',
-        component: () => import(/* webpackChunkName: "userPage" */ '../views/UserPage')
-    }
+    // {
+    //     path: '/myspace',
+    //     name: 'UserSpace',
+    //     component: () => import(/* webpackChunkName: "userPage" */ '../views/UserPage')
+    // }
 ]
 
 const router = new VueRouter({

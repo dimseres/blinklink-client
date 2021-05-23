@@ -1,23 +1,24 @@
 <template>
-  <div class="container">
-    <NavBar />
-    <UserLinks />
+  <div class="w-100">
+    <!-- <NavBar /> -->
+    <div class="container">
+      <UserLinks />
+    </div>
   </div>
 </template>
 
 <script>
-import NavBar from "@/components/NavBar";
+// import NavBar from "@/components/NavBar";
 import UserLinks from "@/components/UserLinks";
 
 export default {
   name: "UserPage",
   components: {
-    NavBar,
+    // NavBar,
     UserLinks
   }
-}
+};
 </script>
 
 <style scoped>
-
 </style>
